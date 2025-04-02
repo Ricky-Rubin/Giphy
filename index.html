@@ -19,11 +19,11 @@
 
         const searchBar = document.getElementById('search-bar');
         const submitButton = document.querySelector('button[type="submit"]');
-        const gifImage = document.querySelector(ímg);
+        const gifImage = document.querySelector('img');
         let searchTerm = searchBar.value.toLowerCase();
 
         async function getGiphy(gifName) {
-            let searchLink = 'https://api.giphy.com/v1/gifs/translate?api_key=YOUR_KEY_HERE&s=' + gifName;
+            let searchLink = 'https://api.giphy.com/v1/gifs/translate?api_key=t4bFRq3o1dvHGnvna3yfu9JGc04QSlv1&s=' + gifName;
 
             const response = await fetch(searchLink, { mode: 'cors' });
             const theData = await response.json();
