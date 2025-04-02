@@ -29,6 +29,8 @@
                 border-radius: 5px;
                 cursor: pointer;
                 margin-top: 10px;
+                width: 100%;
+                max-width: 100px;
             }
 
             button:hover {
@@ -45,6 +47,12 @@
                 font-size: 18px;
                 font-weight: 600;
                 margin-bottom: 10px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
         </style>
     </head>
@@ -67,6 +75,7 @@
         const gifImage = document.querySelector('img');
 
         gifImage.style.display = 'none';
+        searchBar.focus();
 
         async function getGiphy(gifName) {
             let searchLink = 'https://api.giphy.com/v1/gifs/translate?api_key=t4bFRq3o1dvHGnvna3yfu9JGc04QSlv1&s=' + gifName;
