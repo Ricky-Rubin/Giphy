@@ -30,7 +30,8 @@
                 cursor: pointer;
                 margin-top: 10px;
                 width: 100%;
-                max-width: 100px;
+                max-width: 140px;
+                display: inline-block;
             }
 
             button:hover {
@@ -65,6 +66,7 @@
             <img src="#"/>
             <span id="error"></span>
             <button type="submit">Search</button>
+            <button id="refresh">Refresh Gif</button>
         </form>
 
     </body>
@@ -75,9 +77,11 @@
         const submitButton = document.querySelector('button[type="submit"]');
         const gifImage = document.querySelector('img');
         const errorMessage = document.getElementById('error');
+        const refreshButton = document.getElementById('refresh');
 
         gifImage.style.display = 'none';
         errorMessage.style.display = 'none';
+        refreshButton.style.display = 'none';
         searchBar.focus();
 
         async function getGiphy(gifName) {
@@ -101,14 +105,32 @@
                 errorMessage.style.display = 'block';
                 searchBar.value = '';
                 searchBar.focus();
+                refreshButton.style.display = 'none';
             };
         };
+
+        function refreshGif() {
+            gifImage.src = '#';
+            const searchTerm = searchBar.value.toLowerCase();
+            if (searchTerm) {
+                getGiphy(searchTerm);
+            } else {
+                errorMessage.textContent = 'Please enter a search term first.';
+                errorMessage.style.display = 'block';
+            }
+        }
 
         submitButton.addEventListener('click', (event) => {
             event.preventDefault();
             const searchTerm = searchBar.value.toLowerCase();
             getGiphy(searchTerm);
             gifImage.style.display = 'block';
+            refreshButton.style.display = 'block';
         })
+
+        refreshButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            refreshGif();
+        });
     </script>
 </html>
