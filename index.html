@@ -84,6 +84,7 @@
             try {
                 let searchLink = 'https://api.giphy.com/v1/gifs/translate?api_key=t4bFRq3o1dvHGnvna3yfu9JGc04QSlv1&s=' + gifName;
                 console.log(searchLink);
+                errorMessage.style.display = 'none';
 
                 const response = await fetch(searchLink, { mode: 'cors' });
 
@@ -98,6 +99,8 @@
                 gifImage.style.display = 'none';
                 errorMessage.textContent = 'Error fetching the Giphy. Please try another term.';
                 errorMessage.style.display = 'block';
+                searchBar.value = '';
+                searchBar.focus();
             };
         };
 
