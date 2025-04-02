@@ -5,3 +5,6 @@ This is a simple practice project, which is a part of the Odin Project Fullstack
 ## How does it work?
 
 It is very simple. Users input a search term and the page generates a git related to the search term. For invalid terms, the page throws an error in the console and also displays the likely error in the place of a git. 
+
+## Live Link
+[Gif generator]('https://ricky-rubin.github.io/Giphy/')
